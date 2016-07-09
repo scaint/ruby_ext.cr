@@ -1,0 +1,6 @@
+sudo: required
+dist: trusty
+language: crystal
+before_script:
+  - rvm use ruby-2.2.3
+script: make test

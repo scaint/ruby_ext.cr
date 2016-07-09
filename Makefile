@@ -9,8 +9,11 @@ $(EXT_NAME).so: $(EXT_NAME).o
 $(EXT_NAME).o: $(EXT_NAME).cr
 	$(CRYSTAL) compile --cross-compile $<
 
-.PHONY: clean
+.PHONY: clean test
 clean:
 	rm -f bc_flags
 	rm -f $(EXT_NAME).o
 	rm -f $(EXT_NAME).so
+
+test: $(EXT_NAME).so
+	ruby -r ./ruby_ext -e 'Crystal'
